@@ -3,9 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./main.css">
     <title>Password generator</title>
 </head>
 <body>
+    <div class="container">
+        <div class="input-box">
+            <input class="password-output" type="text" disabled>
+            <span class="copy">
+                    <svg class="copy-icon" width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                     <path d="M7.31109 16.7143V21.4286C7.31109 22.2964 8.01748 23 8.88886 23H21.511C22.3824 23 23.0887 22.2964 23.0887 21.4286V8.85714C23.0887 7.98927 22.3824 7.28571 21.511 7.28571H16.7777M16.7777 2.57143V15.1429C16.7777 16.0107 16.0713 16.7143 15.1999 16.7143H2.5778C1.70642 16.7143 1.00003 16.0107 1.00003 15.1429V2.57143C1.00003 1.70355 1.70642 1 2.5778 1H15.1999C16.0713 1 16.7777 1.70355 16.7777 2.57143Z" stroke-width="2"/>
+                    </svg>
+                </span>
+        </div>
+        <div class="password-indicator weak"></div>
+
+        <div class="pass-lenght">
+            <div class="detail">
+                <label for="">pass lenght</label>
+                <span>16</span>
+            </div>
+            <input class="custom-range" type="range" min="16" max="32" value="20" step="2"/>
+        </div>
+    </div>
     
 </body>
 </html>

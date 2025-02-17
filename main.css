@@ -1,0 +1,73 @@
+@import url(./reset.css);
+
+body{
+    background-color: rgb(84, 86, 100);
+    font-family: "Comfortaa", serif;
+    font-size: 18px;
+}
+
+.container{
+    margin: 20% auto 0;
+    width: 528px;
+    min-height: 100px;
+    border: 2px solid #393939;
+    border-radius: 14px;
+    background-color: aliceblue;
+}
+
+.password-output{
+    width: 498px;
+    height: 40px;
+    border: 2px solid #393939;
+    border-radius: 14px;
+    margin: 15px 15px 0;
+}
+
+.password-indicator{
+    width: 498px;
+    height: 4px;
+    margin: 15px 15px 0;
+    border-radius: 14px;  
+}
+
+.password-indicator::before{
+    position: absolute;
+    content: "";
+    height: 4px;
+    width: 498px;
+}
+.weak{
+    width: 498px;
+}
+.password-indicator.weak::before{
+    background: #0b5029;
+    width: 20%;
+}
+
+
+.input-box{
+    position: relative;
+}
+
+.copy-icon{
+    stroke: #393939;
+    cursor: pointer;
+    position: absolute;
+    top: 22px;
+    right: 20px;
+}
+
+.copy-icon:hover{
+    stroke: #0b5029;
+}
+
+.detail{
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 15px 0;
+}
+
+.pass-lenght input{
+    margin: 15px 15px;
+    width: 95.2%;
+}
