@@ -27,22 +27,33 @@ body{
     width: 498px;
     height: 4px;
     margin: 15px 15px 0;
-    border-radius: 14px;  
+    border-radius: 14px;
+    position: relative;  
 }
 
 .password-indicator::before{
     position: absolute;
     content: "";
     height: 4px;
-    width: 498px;
 }
-.weak{
-    width: 498px;
-}
+
+
 .password-indicator.weak::before{
-    background: #0b5029;
+    background: #941212;
     width: 20%;
 }
+
+.password-indicator.strong::before{
+    
+     background: #06be43;
+    width: 100%;
+}
+
+.password-indicator.medium::before{
+   background: #b9af1a;
+    width: 60%;
+}
+
 
 
 .input-box{
