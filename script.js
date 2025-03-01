@@ -26,20 +26,18 @@ const copyPassword = () =>{
   navigator.clipboard.writeText(passwordOutput.value)
 }
 
-
 const updatePasswordIndicator = (num) => {
   passwordDetails.textContent = num;
+  passwordindicator.classList.remove("weak", "medium", "strong");
   if (num <= 20) {
     passwordindicator.classList.add("weak");
-    passwordindicator.classList.remove("strong", "medium");
   } else if (num <= 28) {
-    passwordindicator.classList.remove("strong", "weak");
     passwordindicator.classList.add("medium");
   } else {
-    passwordindicator.classList.remove("medium", "weak");
     passwordindicator.classList.add("strong");
   }
 };
+
 
 
 const restorePasswordOptions = () => {
@@ -82,6 +80,6 @@ const generatePassword = () => {
 
 
 restorePasswordOptions();
-passwordLength.oninput = generatePassword;
-copyButton.onclick = copyPassword;
-generatorButton.onclick = generatePassword;
+passwordLength.addEventListener("input", generatePassword);
+copyButton.addEventListener("click", copyPassword);
+generatorButton.addEventListener("click", generatePassword);
