@@ -16,8 +16,11 @@ const symbols = document.getElementById("symbols");
 const copyButton = document.querySelector(".copy");
 
 
-const randomInteger = (min, max) =>
-  Math.floor(min + Math.random() * (max + 1 - min));
+const randomInteger = (min, max) => Math.floor(min + Math.random() * (max + 1 - min));
+
+const shuffleString = str => str.split('').sort(function(){return 0.5-Math.random()}).join('');
+
+
 
 const copyPassword = () =>{
   navigator.clipboard.writeText(passwordOutput.value)
@@ -39,8 +42,31 @@ const updatePasswordIndicator = (num) => {
 };
 
 
+const restorePasswordOptions = () => {
+  if (localStorage.getItem('passwordOption')) {
+    const passwordOptions = JSON.parse(localStorage.getItem('passwordOption'));
+    uppercase.checked = passwordOptions['uppercase'];
+    numbers.checked = passwordOptions['numbers'];
+    symbols.checked = passwordOptions['symbols'];
+    passwordLength.value = passwordOptions.lenght;
+  }
+}
+
+
+const savePasswordOptions =() =>{
+  const passwordOption = {};
+  passwordOption['length'] = +passwordLength.value;
+  passwordOption['numbers'] = numbers.checked;
+  passwordOption['symbols'] = symbols.checked;
+  passwordOption['uppercase'] = uppercase.checked;
+  localStorage.setItem('passwordOption', JSON.stringify(passwordOption));
+}
+
+
+
 const generatePassword = () => { 
-  let passString = ps.lowercase;
+  savePasswordOptions();
+  let passString = shuffleString(ps.lowercase);
   if (uppercase.checked) passString += ps.uppercase;
   if (numbers.checked) passString += ps.numbers;
   if (symbols.checked) passString += ps.symbols;
@@ -52,10 +78,10 @@ const generatePassword = () => {
       randomPassword += passString[randomInteger(0, passString.length - 1)]
     }
     passwordOutput.value = randomPassword;
-    console.log(passString)
-    console.log(ps.uppercase)
 };
 
+
+restorePasswordOptions();
 passwordLength.oninput = generatePassword;
 copyButton.onclick = copyPassword;
 generatorButton.onclick = generatePassword;
