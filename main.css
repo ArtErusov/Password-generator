@@ -28,7 +28,8 @@ body{
     height: 4px;
     margin: 15px 15px 0;
     border-radius: 14px;
-    position: relative;  
+    position: relative;
+    /* transition: width 0.3s ease;   */
 }
 
 .password-indicator::before{
